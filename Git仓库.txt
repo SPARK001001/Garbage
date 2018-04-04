@@ -1,0 +1,40 @@
+1.创建代码仓库
+git config --global user.name "ben99"
+git config --global user.email "2581212192@qq.com"
+
+2.创建项目，打开Git bash 在工程目录下git init 创建本地代码仓库
+
+3.提交本地代码
+	git add readme.txt
+	git commit -m "Wrote a readme file"
+
+	git add. 可以一次添加全部
+	可以在代码仓库的根目录下创建一个名为 .gitignore 的文件，编辑里面的内容把不需要的文件忽略掉如：
+		/gen/
+		/bin/ 
+		project.properties
+
+4.查看修改内容 git add 后修改
+	git status 可以查看修改的部分
+	git diff 可以查看具体改了什么 按q退回命令行
+
+5.查看提交记录
+	git log
+
+6.撤销未提交的修改
+	修改文件但还没 git add
+		git diff 看到修改的内容
+		git checkout readme.txt 把改的内容删除了
+	已经add了
+		git reset HEAD 文件路径（readme.txt）
+		git checkout readme.txt
+
+7.版本回退
+	git log 查看提交记录，获取版本号，前7位就可以。HEAD 代表当前版本，上一版本HEAD^ ,在上一个版本HEAD^^
+	git reset --hard HEAD
+	git reset --hard HEAD^
+	git log
+
+	也可以直接
+		git reset --hard ad2080c(版本号)
+		回退新版本git log z找不到记录，用git reflog
